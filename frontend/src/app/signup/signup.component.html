@@ -1,0 +1,90 @@
+
+<div class="centertitle">
+  <h1>Register ......... !!!</h1>
+  </div>
+
+
+<div class="wholeForm">
+    
+<span class="section1">
+<img  src="assets\cintana.png" height="70%" width="90%">
+</span>
+
+<span class="section2">
+  <form class="formpadding" [formGroup]="registerForm" (ngSubmit)="registerUser($event)">
+
+    <div>
+      <mat-form-field class="widthformfield">
+          <input type="text" matInput placeholder="firstname" formControlName="firstname" (keydown)="_handleKeydown($event)">
+        <mat-error *ngIf="formControls?.firstname?.errors">
+         <span *ngIf="formControls?.firstname?.errors?.required">
+          FirstName is Required !!!
+         </span>
+         <span *ngIf="formControls?.firstname?.errors?.pattern">
+          Invalid Firstname !!!
+         </span>
+        </mat-error>
+        </mat-form-field>
+  </div>
+  
+  <div>
+    <mat-form-field class="widthformfield">
+        <input type="text"  matInput placeholder="lastname" formControlName="lastname" (keydown)="_handleKeydown($event)">
+      <mat-error *ngIf="formControls?.lastname?.errors">
+       <span *ngIf="formControls?.lastname?.errors?.required">
+        LastName is Required !!!
+       </span>
+       <span *ngIf="formControls?.lastname?.errors?.pattern">
+       Invalid LastName !!!
+       </span>
+      </mat-error>
+      </mat-form-field>
+  </div>
+  
+      <div>
+          <mat-form-field class="widthformfield">
+              <input type="text" matInput placeholder="username" formControlName="username" (keydown)="_handleKeydown($event)">
+             <mat-error *ngIf="formControls?.username?.errors">
+               <span *ngIf="formControls?.username?.errors?.required">
+               UserName is Required !!!
+               </span>
+               <span *ngIf="formControls?.username?.errors?.pattern">
+                 Invalid UserName !!!
+               </span>
+             </mat-error>
+            </mat-form-field>
+      </div>
+    
+      <div>
+          <mat-form-field class="widthformfield erroricon">
+              <input type={{passwordtype}} matInput placeholder="password" formControlName="password" (keydown.space)="$event.preventDefault()">
+           
+              <mat-icon matSuffix *ngIf="!showPass" class="tnxxxwtt" (click)="hideShowPassword()">visibility_off</mat-icon>
+              <mat-icon matSuffix *ngIf="showPass" class="tnxxxwtt" (click)="hideShowPassword()">visibility</mat-icon>
+              <button class="erroriconarrng" mat-button mat-icon-button type="button"
+                *ngIf="formControls?.password?.errors?.pattern" matTooltipPosition="above" id="open" #tooltip = "matTooltip"
+                matTooltip="Must be combination of atleast one uppercase, one lowercase, one digit and one special character with 8 to 25 characters Range">
+                <mat-icon (click)="tooltip.show()" style="font-size: x-large;color: red;">error_outline</mat-icon>
+              </button>
+
+
+              <mat-error *ngIf="formControls?.password?.errors">
+                <span *ngIf="formControls?.password?.errors?.required">
+                  Password is Required !!!
+                </span>
+                <span *ngIf="formControls?.password?.errors?.pattern">
+                  Invalid Password !!!
+                </span>
+              </mat-error>
+            </mat-form-field>
+      </div>
+  
+      <div class="widthformfield pdngtp">
+        <span><button mat-raised-button class="registerbtn" small type="submit">Submit</button></span>
+        <span routerLink="/" class="padleft"><button mat-raised-button class="loginbtn" small type="button">Log In</button></span>
+
+      </div>
+    </form>
+</span>
+
+</div>

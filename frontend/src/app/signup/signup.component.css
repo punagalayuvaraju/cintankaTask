@@ -1,0 +1,60 @@
+.registerbtn{
+    background-color: #0f81c5;
+    color: white;
+}
+.loginbtn{
+    background-color: #040949;
+    color: white;
+}
+.wholeForm{
+    display: flex;
+    width: 100%;
+    }
+
+    .section1{
+     width:50%
+    }
+
+    .section2{
+        width:50%;
+    }
+
+    .centertitle{
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+        background-color: #0f81c5;
+    color: white;
+
+    }
+
+   
+
+    .formpadding{
+        padding-top:18%;
+    } 
+
+    .widthformfield{
+        width: 70%;
+    }
+
+    .pdngtp{
+        padding-top: 24px;
+    }
+
+     .padleft{
+    float: right;
+     }
+
+     .tnxxxwtt{
+         cursor: pointer;
+     }
+
+     .erroricon{
+         position:relative;
+     }
+     .erroriconarrng{
+        position: absolute;
+        top: -12px;
+        right: 1px;
+     }

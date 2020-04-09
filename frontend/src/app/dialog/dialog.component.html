@@ -1,0 +1,25 @@
+<ng-container *ngIf="dialogdata?.type === 'create'">
+        <form [formGroup]="creationForm" (ngSubmit)="creationrecord()">
+            <div class="alignrigth">
+                <button [mat-dialog-close]="'Yes'"  mat-icon-button type="button"><mat-icon>highlight_off</mat-icon></button>
+            </div>
+
+            <div>
+                <input type="file" formControlName="photo"   (change)="onFileSelected($event)" accept=".png, .jpeg , .jpg" >
+            </div>
+           
+            <div class="pdngTop">  
+            <mat-form-field class="widthformfield">
+                <textarea class="txtarea" matInput formControlName="txtarea" (keydown)="_handleKeydown($event)" placeholder="Description ...."></textarea>
+              </mat-form-field>
+            </div>
+
+                 
+        
+            <div class="aligncentr">
+             <button mat-raised-button class="btnclr" type="submit">Submit</button>
+            </div>
+        </form>      
+        
+</ng-container>
+

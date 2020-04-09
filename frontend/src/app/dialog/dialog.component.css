@@ -1,0 +1,35 @@
+.btnclr{
+    background-color: #0f81c5;
+    color: white;
+  }
+  .aligncentr{
+  display: flex;
+  justify-content: center;
+  }
+  
+  .alignrigth{
+    display: flex;
+    float: right;
+  }
+  .alignSpaceEvenly{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .redclr{
+background-color: red;
+color: white;
+  }
+  .grnclr{
+      background-color: green;
+      color: white;
+  }
+  .txtarea{
+  resize: none;
+  }
+  .widthformfield{
+   width: 90%;
+  }
+  .pdngTop{
+  padding-top:30px;
+  }

@@ -1,0 +1,51 @@
+<div>
+    <mat-toolbar  class="position-fixed">
+        <div class="dvwdth">
+            <span> {{userinfo?.firstname}}</span>
+            <span (click)="logout($event)" class="icnend"><mat-icon>input</mat-icon></span>
+        </div>
+        </mat-toolbar>
+        
+        <div  class="fixToEnd">
+            <button *ngIf="userinfo?.userrole === 'admin'" class="clrbtn posfixed" small mat-raised-button type="button" (click)="createTaskList()">Add Post</button>
+        </div>
+</div>
+
+<div class="psthgt">
+    <router-outlet></router-outlet>
+</div>
+
+<ng-container *ngIf="usersTasks?.length">
+<div class="divcard" *ngFor="let i of usersTasks">
+    <mat-card class="example-card" >
+     <div class="restrictimgHeight">
+        <img mat-card-image height="auto" width="100%" [src]="serverurl+'/'+i?.image" alt="Photo of a Shiba Inu">
+     </div>
+        <mat-card-content class="middleContent">
+          <p class="break">
+            {{i?.description}}
+          </p>
+        </mat-card-content>
+        <div class="alignInline">
+          <button type="button" (click)="openComments=true;getComments(i)" class="clrbtn" mat-button>COMMENT</button>
+          <form [formGroup]="commentForm" (ngSubmit)="commentSuccess(i)"  *ngIf="openComments" class="PosnRelat">
+            <input formControlName="comment" (keydown)="_handleKeydown($event)" class="inputField" type="text" placeholder="Add a comment ...." >
+            <button *ngIf="commentForm?.valid" type="submit" class="sendMsg" mat-icon-button><mat-icon>send</mat-icon></button>   
+        </form>
+    </div>
+<span *ngIf="AllComments?.part_Comments?.length && openComments && i?._id === AllComments._id">
+    <div *ngFor="let j of AllComments.part_Comments" class="bcgclr">
+        <span> {{j?.userCommented}} : </span>
+        <span> {{j?.comment}} </span>
+    </div>
+</span>
+    
+      </mat-card>
+</div>
+</ng-container>
+
+<div class="divcard" *ngIf="!usersTasks?.length">
+    <mat-card class="example-card" >
+    <img height="80%" width="100%" src="assets\noposts.png"> 
+    </mat-card>
+</div>
